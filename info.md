@@ -1,0 +1,11 @@
+# Fields for register
+- email+
+- password+
+- first_name+
+- last_name+
+- alias+
+- group+
+- direction (1, 2, 3)+
+- date_of_birth+
+- age+
+- ? created_date
