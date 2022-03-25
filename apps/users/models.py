@@ -1,17 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.validators import UnicodeUsernameValidator
+
+username_validator = UnicodeUsernameValidator()
 
 
 class User(AbstractUser):
 
     DIR_CHOICES = (
-        ('A', 'Android'),
-        ('B', 'Backend'),
-        ('F', 'Frontend'),
+        (1, 'Android'),
+        (2, 'Backend'),
+        (3, 'Frontend'),
     )
-    username = models.CharField(
-        max_length=100,
+    alias = models.CharField(
+        max_length=150,
         unique=True,
+        validators=[username_validator],
+        error_messages={
+            "unique": "A user with that username already exists.",
+        },
     )
     firstName = models.CharField(
         max_length=50,
@@ -47,7 +54,7 @@ class User(AbstractUser):
         auto_now_add=True,
     )
 
-    REQUIRED_FIELDS = ['firstName', 'lastName', 'email', 'direction', 'group', 'birthday', 'age']
+    REQUIRED_FIELDS = ['alias', 'firstName', 'lastName', 'email', 'direction', 'group', 'birthday', 'age']
 
     def __str__(self):
-        return self.username
+        return self.alias
