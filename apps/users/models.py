@@ -8,9 +8,9 @@ username_validator = UnicodeUsernameValidator()
 class User(AbstractUser):
 
     DIR_CHOICES = (
-        (1, 'Android'),
-        (2, 'Backend'),
-        (3, 'Frontend'),
+        ('1', 'Android'),
+        ('2', 'Backend'),
+        ('3', 'Frontend'),
     )
     alias = models.CharField(
         max_length=150,
