@@ -30,7 +30,10 @@ INSTALLED_APPS = [
     'apps.users',
 
     # cors
-    'corsheaders'
+    'corsheaders',
+
+    # yasg
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

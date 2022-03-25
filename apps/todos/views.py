@@ -8,6 +8,10 @@ from .permissions import OwnerPermission
 
 class TodoListAPIView(generics.ListAPIView):
 
+    """
+    Show all todos
+    """
+
     model = Todo
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
@@ -15,6 +19,10 @@ class TodoListAPIView(generics.ListAPIView):
 
 
 class TodoCreateAPIView(generics.CreateAPIView):
+
+    """
+    Create new todos
+    """
 
     model = Todo
     queryset = Todo.objects.all()
