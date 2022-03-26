@@ -17,7 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
             'group',
             'birthday',
             'age',
-            'is_staff',
             'password',
         ]
 
