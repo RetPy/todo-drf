@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
 
-username_validator = UnicodeUsernameValidator()
-
 
 class User(AbstractUser):
+
+    username_validator = UnicodeUsernameValidator()
 
     DIR_CHOICES = (
         ('1', 'Android'),
@@ -38,9 +38,13 @@ class User(AbstractUser):
     direction = models.CharField(
         max_length=15,
         choices=DIR_CHOICES,
+        null=True,
+        blank=True,
     )
     group = models.CharField(
-        max_length=50
+        max_length=50,
+        null=True,
+        blank=True,
     )
     birthday = models.DateField(
         null=True,

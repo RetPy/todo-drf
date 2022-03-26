@@ -8,6 +8,7 @@ from .yasg import urlpatterns as yasg_pat
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', include('apps.todos.urls')),
+    path('users/', include('apps.users.urls')),
     path(r'auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
