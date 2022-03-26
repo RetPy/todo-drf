@@ -13,6 +13,11 @@ class Todo(models.Model):
     created_date = models.DateTimeField(
         auto_now_add=True
     )
+    category = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+    )
     is_done = models.BooleanField(
         default=False,
         db_index=False

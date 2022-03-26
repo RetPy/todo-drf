@@ -31,3 +31,10 @@ class TodoCreateAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class TodoDetailUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
+
+    model = Todo
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
