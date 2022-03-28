@@ -1,9 +1,8 @@
 from django.db import models
-from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
 
 
-class User(AbstractBaseUser):
+class User(models.Model):
 
     username_validator = UnicodeUsernameValidator()
 
@@ -54,17 +53,13 @@ class User(AbstractBaseUser):
         null=True,
         blank=True,
     )
-    is_staff = models.BooleanField(
-        default=False,
-        db_index=False,
-    )
     registration_date = models.DateTimeField(
         auto_now_add=True,
     )
 
-    USERNAME_FIELD = 'alias'
-
-    REQUIRED_FIELDS = ['firstName', 'lastName', 'email', 'direction', 'group', 'birthday', 'age']
+    @property
+    def is_authenticated(self):
+        return True
 
     def __str__(self):
         return self.alias
