@@ -10,4 +10,4 @@ class TodoAdmin(admin.ModelAdmin):
     list_editable = ('is_done',)
     list_filter = ('is_done',)
     search_fields = ('title', 'user__username',)
-    readonly_fields = ('user',)
+    # readonly_fields = ('user',)

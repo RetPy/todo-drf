@@ -18,8 +18,8 @@ class TodoListAPIView(generics.ListAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['category', 'created_date', 'is_done']
-    permission_classes = [OwnerPermission, IsAuthenticated]
+    filterset_fields = ['category', 'created_date', 'is_done', 'user']
+    permission_classes = [OwnerPermission]
 
 
 class TodoCreateAPIView(generics.CreateAPIView):
