@@ -62,6 +62,11 @@ class User(AbstractUser):
             "unique": "A user with that username already exists.",
         },
     )
+    username = models.CharField(
+        max_length=150,
+        null=True,
+        blank=True,
+    )
     firstName = models.CharField(
         max_length=50,
         null=True,
