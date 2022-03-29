@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # apps
     'apps.todos',
     'apps.users',
+    'apps.categories',
 
     # cors
     'corsheaders',

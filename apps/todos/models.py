@@ -1,6 +1,7 @@
 from django.db import models
 
 from apps.users.models import User
+from apps.categories.models import Category
 
 
 class Todo(models.Model):
@@ -12,14 +13,14 @@ class Todo(models.Model):
     created_date = models.DateTimeField(
         auto_now_add=True
     )
-    category = models.CharField(
-        max_length=100,
-        null=True,
-        blank=True,
-    )
     is_done = models.BooleanField(
         default=False,
         db_index=False
+    )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='category_todo'
     )
     user = models.ForeignKey(
         User,

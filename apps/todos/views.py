@@ -9,7 +9,6 @@ from .permissions import OwnerPermission
 
 
 class TodoListAPIView(generics.ListAPIView):
-
     """
     Show all todos
     """
@@ -26,7 +25,6 @@ class TodoListAPIView(generics.ListAPIView):
 
 
 class TodoCreateAPIView(generics.CreateAPIView):
-
     """
     Create new todos
     """
@@ -34,13 +32,16 @@ class TodoCreateAPIView(generics.CreateAPIView):
     model = Todo
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
-    permission_classes = [OwnerPermission, IsAuthenticated]
+    # permission_classes = [OwnerPermission, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
 
 class TodoDetailUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Detail, update, detail view for todos
+    """
 
     model = Todo
     queryset = Todo.objects.all()
