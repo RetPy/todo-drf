@@ -32,6 +32,9 @@ class CategoryCreateAPIView(generics.CreateAPIView):
     model = Category
     serializer_class = CategorySerializer
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 class CategoryDetailUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
