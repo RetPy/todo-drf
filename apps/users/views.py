@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.response import Response
 
 from .models import User
 from .serializers import UserSerializer
@@ -28,3 +29,4 @@ class RegisterAPIView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         Category.objects.create(title='Без категории', user=serializer.instance)
+        return Response(serializer.data)
