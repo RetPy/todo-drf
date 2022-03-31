@@ -28,5 +28,5 @@ class RegisterAPIView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
-        Category.objects.create(title='Без категории', user=serializer.instance)
+        Category.objects.create(name='Без категории', user=serializer.instance)
         return Response(serializer.data)
