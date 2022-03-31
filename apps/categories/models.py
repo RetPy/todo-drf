@@ -5,7 +5,7 @@ from apps.users.models import User
 
 class Category(models.Model):
 
-    title = models.CharField(
+    name = models.CharField(
         max_length=100,
     )
     user = models.ForeignKey(
