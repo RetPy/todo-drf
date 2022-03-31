@@ -53,7 +53,7 @@ class CategoryCheckAPIView(generics.ListAPIView):
     model = Category
     serializer_class = CategorySerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['title']
+    search_fields = ['name']
 
     def get_queryset(self):
         user = self.request.user
