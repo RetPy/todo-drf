@@ -15,7 +15,7 @@ class Category(models.Model):
     )
 
     class Meta:
-        unique_together = (('title', 'user'),)
+        unique_together = (('name', 'user'),)
 
     def __str__(self):
         return self.title
