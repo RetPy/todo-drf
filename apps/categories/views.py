@@ -4,13 +4,6 @@ from .models import Category
 from .serializers import CategorySerializer
 
 
-# class CustomSearchFilter(filters.SearchFilter):
-#     def get_search_fields(self, view, request):
-#         if request.query_params is not None:
-#             return True
-#         return super().get_search_fields(view, request)
-
-
 class CategoryListAPIView(generics.ListAPIView):
     """
     List of categories
@@ -31,6 +24,7 @@ class CategoryCreateAPIView(generics.CreateAPIView):
 
     model = Category
     serializer_class = CategorySerializer
+    queryset = Category.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
